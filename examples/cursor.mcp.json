@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "favcrm": {
+      "url": "https://api.favcrm.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:FAVCRM_API_KEY}"
+      }
+    }
+  }
+}

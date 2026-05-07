@@ -1,0 +1,12 @@
+{
+  "//": "Community config for Claude Desktop pre-Connectors-Directory.",
+  "//": "Once OAuth provider ships (Phase 3), use claude.com Connectors UI instead.",
+  "mcpServers": {
+    "favcrm": {
+      "url": "https://api.favcrm.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:FAVCRM_API_KEY}"
+      }
+    }
+  }
+}
