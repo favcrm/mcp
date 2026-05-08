@@ -192,6 +192,19 @@ Full table: [favcrm.io/pricing](https://favcrm.io/pricing).
 - [favcrm.io/pricing](https://favcrm.io/pricing) — pricing matrix
 - [favcrm.io/privacy-policy](https://favcrm.io/privacy-policy) · [/terms-of-use](https://favcrm.io/terms-of-use)
 
+## Brand assets
+
+Marketplace-ready 1:1 icons with background plate, in [`assets/`](./assets):
+
+| File | Use |
+|---|---|
+| [`assets/icon.png`](./assets/icon.png) | 512×512 PNG — Cursor / Smithery / mcp.so listing |
+| [`assets/favcrm-icon-256-dark.svg`](./assets/favcrm-icon-256-dark.svg) | 1:1 SVG, ink plate, light glyph — most marketplaces |
+| [`assets/favcrm-icon-256-light.svg`](./assets/favcrm-icon-256-light.svg) | 1:1 SVG, canvas plate, ink glyph — light-themed UIs |
+| [`assets/favcrm-icon-256-dark.png`](./assets/favcrm-icon-256-dark.png) | 256×256 PNG fallback |
+
+All icons are 1:1 aspect ratio with rounded-square plate (48px corner radius on 256-unit grid) and centered "fav." wordmark glyph.
+
 ## License
 
 This repo (docs + examples) is MIT — see [`LICENSE`](./LICENSE). The hosted MCP server is proprietary FavCRM SaaS; install requires a FavCRM account.
