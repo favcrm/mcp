@@ -1,5 +1,7 @@
 # FavCRM MCP
 
+[![smithery badge](https://smithery.ai/badge/favcrm/favcrm)](https://smithery.ai/servers/favcrm/favcrm)
+
 > Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
 
 136 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
