@@ -19,9 +19,30 @@
 
 ## Get a key
 
-Sign up at [favcrm.io/signup](https://favcrm.io/signup). The free tier covers 100 customers, 200 bookings/month, and 1k MCP calls/month. Mint an API key from the merchant portal at `Settings → MCP Keys` — keys look like `fav_mcp_xxxxxxxxxxxx`.
+Two ways:
+
+**Option A — your agent signs you up (no form, no portal click)**
+
+Connect FavCRM to your client first (see Cursor section below) using a placeholder env var. Then ask your agent:
+
+> "Sign me up for FavCRM. Yoga studio called Stretch + Breathe in Hong Kong."
+
+The agent will:
+
+1. Call `register_organisation_request` — server emails a 6-digit code to you
+2. You paste the code back in chat
+3. Agent calls `register_organisation_verify` — server returns a fresh `fav_mcp_*` key
+4. Agent stores the key and starts working immediately
+
+Behind the scenes: 10-min OTP, real email-ownership check, per-IP rate limit (3/hour, 20/day). No phishing surface, no fake demos.
+
+**Option B — sign up the traditional way**
+
+[favcrm.io/signup](https://favcrm.io/signup) → portal → `Settings → MCP Keys` → copy the `fav_mcp_*` value.
 
 Existing FavCRM merchants: same place, no plan upgrade needed for MCP access.
+
+**Free tier (both options):** 100 customers, 200 bookings/month, 1k MCP calls/month, 30-day trial of higher limits.
 
 ---
 
