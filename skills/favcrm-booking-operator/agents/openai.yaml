@@ -1,0 +1,4 @@
+display_name: Booking Operator
+short_description: Manage FavCRM services, availability, bookings, cancellations, and no-shows.
+default_prompt: Help me manage today's bookings in FavCRM.
+

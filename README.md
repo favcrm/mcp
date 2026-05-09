@@ -6,6 +6,8 @@
 
 154 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
+Public agent skills live in [`skills/`](./skills): portable workflow packages for booking operations, customer lifecycle, comms approval, and billing/commerce. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
+
 | Client | Status | Setup |
 |---|---|---|
 | **Vercel v0** | ✅ Live | [Marketplace install](https://vercel.com/integrations/favcrm) — auto-provisions a workspace + injects env vars |
@@ -203,6 +205,7 @@ Full table: [favcrm.io/pricing](https://favcrm.io/pricing).
 
 - Bugs in tool behaviour or MCP transport: [open an issue](../../issues/new/choose) here.
 - Examples for a new client (Cline, Replit Agent, Roo, etc.): PRs welcome under [`examples/`](./examples).
+- Agent workflow skills: PRs welcome under [`skills/`](./skills).
 - Server bugs / new tool requests / commercial questions: [dev@favcrm.io](mailto:dev@favcrm.io).
 
 ---

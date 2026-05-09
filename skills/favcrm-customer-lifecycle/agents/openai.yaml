@@ -1,0 +1,4 @@
+display_name: Customer Lifecycle
+short_description: Search, segment, onboard, retain, and summarize FavCRM customers.
+default_prompt: Find and summarize a customer in FavCRM.
+

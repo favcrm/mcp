@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "source": "https://github.com/favcrm/mcp/tree/main/skills",
+  "skills": [
+    {
+      "name": "favcrm-booking-operator",
+      "path": "skills/favcrm-booking-operator",
+      "description": "Use for service setup, availability, booking lifecycle, cancellations, no-shows, reminders, and daily booking operations in FavCRM."
+    },
+    {
+      "name": "favcrm-customer-lifecycle",
+      "path": "skills/favcrm-customer-lifecycle",
+      "description": "Use for customer search, member profiles, tags, tiers, loyalty, segments, onboarding, retention, and customer 360 summaries in FavCRM."
+    },
+    {
+      "name": "favcrm-comms-approval",
+      "path": "skills/favcrm-comms-approval",
+      "description": "Use for drafting, validating, and approval-gating WhatsApp, SMS, email, inbox replies, broadcasts, and campaigns in FavCRM."
+    },
+    {
+      "name": "favcrm-billing-commerce",
+      "path": "skills/favcrm-billing-commerce",
+      "description": "Use for invoices, payments, products, orders, promotions, subscriptions, overdue follow-up, and commerce operations in FavCRM."
+    }
+  ]
+}
+

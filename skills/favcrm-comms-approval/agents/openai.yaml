@@ -1,0 +1,4 @@
+display_name: Comms Approval
+short_description: Draft and approval-gate FavCRM WhatsApp, SMS, email, replies, and campaigns.
+default_prompt: Draft a customer message and request approval in FavCRM.
+

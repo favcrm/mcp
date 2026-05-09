@@ -1,0 +1,4 @@
+display_name: Billing Commerce
+short_description: Manage FavCRM invoices, payments, orders, products, promotions, and subscriptions.
+default_prompt: Review overdue invoices and draft follow-ups in FavCRM.
+
