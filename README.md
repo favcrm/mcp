@@ -187,6 +187,19 @@ Example:
 favcrm tool call report_agent_issue '{"title":"Missing account creation MCP tool","severity":"high","area":"mcp_tool_missing","expectedBehavior":"Agent can create an account via MCP only.","actualBehavior":"Agent had to use SDK fallback.","stepsTried":["Listed tools","Tried create_contact"],"aiAnalysis":"Account creation exists in backend services but was not exposed in MCP."}'
 ```
 
+## Plan operations
+
+Agents can inspect and preflight plan access without leaving MCP:
+
+```bash
+favcrm tool call get_plan_status '{}'
+favcrm tool call check_plan_operation '{"toolName":"create_account"}'
+favcrm tool call list_plan_options '{}'
+favcrm tool call create_plan_upgrade_link '{"planCode":"favcrm-lite","billingCycle":"monthly","confirm":true}'
+```
+
+Use `check_plan_operation` before writes that may hit module, scope, subscription, or quota gates. If the result includes `upgradeAction`, show the user the returned action. Stripe links are only created by `create_plan_upgrade_link` with `confirm=true`.
+
 ---
 
 ## Auth modes

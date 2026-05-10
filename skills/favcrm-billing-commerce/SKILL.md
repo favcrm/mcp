@@ -11,6 +11,7 @@ Use this skill for invoices, payments, products, orders, promotions, subscriptio
 
 - Ground every invoice, order, subscription, or payment claim with FavCRM data.
 - Use `favcrm tool list` and `favcrm tool describe <name>` before unfamiliar billing or commerce tools.
+- For plan, quota, permission, or upgrade questions, call `get_plan_status`, `check_plan_operation`, and `list_plan_options` before advising. Only call `create_plan_upgrade_link` after explicit user confirmation.
 - Treat refunds, voids, cancellations, payment recording, and subscription changes as sensitive mutations.
 - Show count and 3-row preview before bulk billing actions.
 - Use the comms approval flow for overdue reminders or payment chase messages.
@@ -24,4 +25,3 @@ Use this skill for invoices, payments, products, orders, promotions, subscriptio
 5. Report the resulting status and record IDs after confirmed writes.
 
 Read `references/billing-commerce-flows.md` for concrete CLI patterns.
-
