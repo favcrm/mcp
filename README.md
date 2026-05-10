@@ -4,7 +4,7 @@
 
 > Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
 
-154 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
+156 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
 Public agent skills live in [`skills/`](./skills): portable workflow packages for agentic registration, booking operations, customer lifecycle, comms approval, billing/commerce, content, sales ops, knowledge training, and reporting. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
 
@@ -79,7 +79,7 @@ echo 'export FAVCRM_API_KEY=fav_mcp_...' >> ~/.zshrc
 echo 'export FAVCRM_API_KEY=fav_mcp_...' >> .envrc
 ```
 
-Restart Cursor → `Settings → MCP → favcrm` connects → 154 tools land in chat.
+Restart Cursor → `Settings → MCP → favcrm` connects → 156 tools land in chat.
 
 > Why `${env:VAR}` instead of inline? Cursor interpolates env vars at request time so the key never lands in your repo or shared config.
 
@@ -117,7 +117,7 @@ Until then, advanced users can wire FavCRM into Claude Desktop's `claude_desktop
 
 1. ChatGPT → Tools menu → Apps → search "FavCRM"
 2. Add → OAuth handshake → workspace selector
-3. 24 curated tools land in chat (read-mostly + safe writes; destructive ops gated behind confirmation)
+3. 26 curated tools land in chat (read-mostly + safe writes; destructive ops gated behind confirmation)
 
 ---
 
@@ -128,7 +128,7 @@ Once your config is live, ChatGPT/Cursor/Claude will list tools automatically. T
 ```bash
 # Discovery (no auth needed — public-scan endpoint)
 curl https://api.favcrm.io/.well-known/mcp/server-card.json | jq '.tools | length'
-# → 154
+# → 156
 
 # Auth + initialize
 curl -s https://api.favcrm.io/mcp \
@@ -155,7 +155,7 @@ See [`examples/`](./examples) for more.
 
 ## Tool surface
 
-154 tools across 22 scopes. Every tool ships with annotations:
+156 tools across 22 scopes. Every tool ships with annotations:
 
 - `title` — human-readable label
 - `readOnlyHint` — `true` for `list_*` / `get_*` / `search_*` / etc.
@@ -167,13 +167,25 @@ Clients can use these to gate destructive calls or estimate cost. The full catal
 
 | Scope | Sample tools | Read-only | Write |
 |---|---|---|---|
-| `contacts` | `search_members`, `get_member_profile`, `attach_tags` | 5 | 5 |
+| `contacts` | `search_members`, `get_member_profile`, `create_account`, `attach_tags` | 5 | 6 |
 | `bookings` | `list_services`, `get_available_slots`, `create_booking` | 12 | 15 |
 | `membership` | `list_tiers`, `enrol_membership`, `earn_loyalty_points` | 4 | 3 |
 | `shop` | `list_products`, `get_order`, `create_order` | 8 | 6 |
 | `invoices` | `list_invoices`, `mark_invoice_paid` | 4 | 4 |
 | `campaigns` | `list_campaigns`, `send_campaign` (gated) | 5 | 3 |
 | `blog` | `list_posts`, `publish_post` | 14 | 13 |
+
+---
+
+## Agent Issue Reports
+
+Agents should call `report_agent_issue` when an MCP-native path is missing, a tool schema is confusing, a tool fails unexpectedly, or they had to fall back to REST/SDK behavior. Include expected behavior, actual behavior, steps tried, relevant tool calls/logs, AI analysis, and clarification questions. FavCRM routes these reports to the platform support queue for triage.
+
+Example:
+
+```bash
+favcrm tool call report_agent_issue '{"title":"Missing account creation MCP tool","severity":"high","area":"mcp_tool_missing","expectedBehavior":"Agent can create an account via MCP only.","actualBehavior":"Agent had to use SDK fallback.","stepsTried":["Listed tools","Tried create_contact"],"aiAnalysis":"Account creation exists in backend services but was not exposed in MCP."}'
+```
 
 ---
 
