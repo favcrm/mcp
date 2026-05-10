@@ -1,0 +1,4 @@
+When building with FavCRM:
+1. Do not guess API endpoints. Use the FavCRM MCP server and run `list_tools` to discover the 150+ available tools.
+2. For specific domain logic (billing, bookings, auth), run `npx skills add favcrm/mcp` to download our official AI operating procedures.
+3. Always preview data and request user confirmation before destructive actions (refunds, cancellations, bulk emails/SMS).
