@@ -6,19 +6,19 @@ These packages teach agents how to perform real CRM work with the FavCRM MCP ser
 
 ## Skills
 
-To install any of these skills for your local AI agent (Cursor, Windsurf, Claude Code), use the `npx skills add` command.
+To install any of these skills for your local AI agent (Cursor, Windsurf, Claude Code), use the `npx skills add` command. You can install all skills together via `npx skills add favcrm/mcp`, or install them individually:
 
 | Skill | Install Command | Use when |
 |---|---|---|
-| `favcrm-agentic-registration` | `npx skills add favcrm/mcp/skills/favcrm-agentic-registration` | New user registration, workspace creation, signup OTP, and first `fav_mcp_*` API key from inside an MCP client. |
-| `favcrm-booking-operator` | `npx skills add favcrm/mcp/skills/favcrm-booking-operator` | Service setup, availability, bookings, cancellations, no-shows, reminders, and daily booking operations. |
-| `favcrm-customer-lifecycle` | `npx skills add favcrm/mcp/skills/favcrm-customer-lifecycle` | Customer search, member profiles, tags, tiers, loyalty, segments, onboarding, retention, and customer 360 summaries. |
-| `favcrm-comms-approval` | `npx skills add favcrm/mcp/skills/favcrm-comms-approval` | Marketing campaigns, customer reactivation, promotions, broadcasts, WhatsApp, SMS, email, inbox replies, and approval-gated sends. |
-| `favcrm-billing-commerce` | `npx skills add favcrm/mcp/skills/favcrm-billing-commerce` | Invoices, payments, products, orders, promotions, subscriptions, overdue follow-up, and commerce operations. |
-| `favcrm-content-publisher` | `npx skills add favcrm/mcp/skills/favcrm-content-publisher` | Blog posts, CMS blocks, landing-page content, AI images, publishing, and content updates. |
-| `favcrm-sales-ops` | `npx skills add favcrm/mcp/skills/favcrm-sales-ops` | Deals, pipeline stages, tasks, follow-ups, owners, workspace switching, and operational handoffs. |
-| `favcrm-knowledge-training` | `npx skills add favcrm/mcp/skills/favcrm-knowledge-training` | Train the FavCRM AI agent from URLs or text, list knowledge docs, check status, and prune stale content. |
-| `favcrm-business-reporting` | `npx skills add favcrm/mcp/skills/favcrm-business-reporting` | Dashboards, weekly snapshots, KPI summaries, revenue, bookings, invoices, subscriptions, and risk reports. |
+| `favcrm-agentic-registration` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-agentic-registration` | New user registration, workspace creation, signup OTP, and first `fav_mcp_*` API key from inside an MCP client. |
+| `favcrm-booking-operator` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-booking-operator` | Service setup, availability, bookings, cancellations, no-shows, reminders, and daily booking operations. |
+| `favcrm-customer-lifecycle` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-customer-lifecycle` | Customer search, member profiles, tags, tiers, loyalty, segments, onboarding, retention, and customer 360 summaries. |
+| `favcrm-comms-approval` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-comms-approval` | Marketing campaigns, customer reactivation, promotions, broadcasts, WhatsApp, SMS, email, inbox replies, and approval-gated sends. |
+| `favcrm-billing-commerce` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-billing-commerce` | Invoices, payments, products, orders, promotions, subscriptions, overdue follow-up, and commerce operations. |
+| `favcrm-content-publisher` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-content-publisher` | Blog posts, CMS blocks, landing-page content, AI images, publishing, and content updates. |
+| `favcrm-sales-ops` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-sales-ops` | Deals, pipeline stages, tasks, follow-ups, owners, workspace switching, and operational handoffs. |
+| `favcrm-knowledge-training` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-knowledge-training` | Train the FavCRM AI agent from URLs or text, list knowledge docs, check status, and prune stale content. |
+| `favcrm-business-reporting` | `npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-business-reporting` | Dashboards, weekly snapshots, KPI summaries, revenue, bookings, invoices, subscriptions, and risk reports. |
 
 ## Runtime Model
 

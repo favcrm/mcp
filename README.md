@@ -12,7 +12,10 @@ Building against the FavCRM headless backend with an AI Agent? Teach your AI our
 
 ```bash
 # Example: Install the Booking Operator skill
-npx skills add favcrm/mcp/skills/favcrm-booking-operator
+npx skills add https://github.com/favcrm/mcp/tree/main/skills/favcrm-booking-operator
+
+# Or install all skills at once
+npx skills add favcrm/mcp
 ```
 
 See the [`skills/`](./skills) directory for the full list of available agent skills.
