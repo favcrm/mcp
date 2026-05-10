@@ -8,10 +8,15 @@ These packages teach agents how to perform real CRM work with the FavCRM MCP ser
 
 | Skill | Use when |
 |---|---|
+| `favcrm-agentic-registration` | New user registration, workspace creation, signup OTP, and first `fav_mcp_*` API key from inside an MCP client. |
 | `favcrm-booking-operator` | Service setup, availability, bookings, cancellations, no-shows, reminders, and daily booking operations. |
 | `favcrm-customer-lifecycle` | Customer search, member profiles, tags, tiers, loyalty, segments, onboarding, retention, and customer 360 summaries. |
-| `favcrm-comms-approval` | Drafting, validating, and approval-gating WhatsApp, SMS, email, inbox replies, broadcasts, and campaigns. |
+| `favcrm-comms-approval` | Marketing campaigns, customer reactivation, promotions, broadcasts, WhatsApp, SMS, email, inbox replies, and approval-gated sends. |
 | `favcrm-billing-commerce` | Invoices, payments, products, orders, promotions, subscriptions, overdue follow-up, and commerce operations. |
+| `favcrm-content-publisher` | Blog posts, CMS blocks, landing-page content, AI images, publishing, and content updates. |
+| `favcrm-sales-ops` | Deals, pipeline stages, tasks, follow-ups, owners, workspace switching, and operational handoffs. |
+| `favcrm-knowledge-training` | Train the FavCRM AI agent from URLs or text, list knowledge docs, check status, and prune stale content. |
+| `favcrm-business-reporting` | Dashboards, weekly snapshots, KPI summaries, revenue, bookings, invoices, subscriptions, and risk reports. |
 
 ## Runtime Model
 
@@ -26,9 +31,9 @@ Public source lives here. FavCRM merchant runtimes do not pull arbitrary GitHub 
 
 All skills use the same safety baseline:
 
-- Discover before acting with `favcrm tool list` and `favcrm tool describe <name>`.
+- For merchant runtime skills, discover before acting with `favcrm tool list` and `favcrm tool describe <name>`.
+- For `favcrm-agentic-registration`, use the no-auth MCP tools directly; do not use the CLI before the API key exists.
 - Do not guess tool names or JSON argument keys.
 - Show count and a 3-row preview before bulk sends, refunds, deletes, voids, or cancellations.
 - Route all customer-facing sends through `request_send_approval`.
 - Never ask the merchant for API keys inside a FavCRM runtime.
-

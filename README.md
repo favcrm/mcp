@@ -6,7 +6,7 @@
 
 154 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
-Public agent skills live in [`skills/`](./skills): portable workflow packages for booking operations, customer lifecycle, comms approval, and billing/commerce. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
+Public agent skills live in [`skills/`](./skills): portable workflow packages for agentic registration, booking operations, customer lifecycle, comms approval, billing/commerce, content, sales ops, knowledge training, and reporting. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
 
 | Client | Status | Setup |
 |---|---|---|
@@ -35,6 +35,8 @@ The agent will:
 2. You paste the code back in chat
 3. Agent calls `register_organisation_verify` — server returns a fresh `fav_mcp_*` key
 4. Agent stores the key and starts working immediately
+
+See [`skills/favcrm-agentic-registration`](./skills/favcrm-agentic-registration) for the portable SKILL.md workflow.
 
 Behind the scenes: 10-min OTP, real email-ownership check, per-IP rate limit (3/hour, 20/day). No phishing surface, no fake demos.
 
@@ -85,7 +87,7 @@ Restart Cursor → `Settings → MCP → favcrm` connects → 154 tools land in 
 
 ## Smithery
 
-[`favcrm.io`](https://smithery.ai/server/favcrm/favcrm) on Smithery — install via CLI:
+[`favcrm.io`](https://smithery.ai/servers/favcrm/favcrm) on Smithery — install via CLI:
 
 ```bash
 npm i -g @smithery/cli

@@ -1,4 +1,3 @@
 display_name: Comms Approval
-short_description: Draft and approval-gate FavCRM WhatsApp, SMS, email, replies, and campaigns.
-default_prompt: Draft a customer message and request approval in FavCRM.
-
+short_description: Draft and approval-gate FavCRM marketing campaigns, broadcasts, replies, WhatsApp, SMS, and email.
+default_prompt: Draft a customer reactivation campaign and request approval in FavCRM.

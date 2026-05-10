@@ -1,0 +1,4 @@
+display_name: Content Publisher
+short_description: Draft, edit, generate media for, and publish FavCRM blog/CMS content.
+default_prompt: Draft a FavCRM blog post and keep it as a draft for review.
+

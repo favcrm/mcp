@@ -1,0 +1,4 @@
+display_name: Agentic Registration
+short_description: Register a new FavCRM workspace from an MCP client using OTP and no portal form.
+default_prompt: Sign me up for FavCRM from this chat.
+

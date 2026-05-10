@@ -1,11 +1,11 @@
 ---
 name: favcrm-comms-approval
-description: Use for drafting, validating, and approval-gating WhatsApp, SMS, email, inbox replies, broadcasts, and campaigns in FavCRM.
+description: Use for FavCRM marketing campaigns, customer reactivation, broadcasts, WhatsApp, SMS, email, inbox replies, and approval-gated customer communications.
 ---
 
 # FavCRM Comms Approval
 
-Use this skill for inbox replies, WhatsApp, SMS, email, broadcasts, campaign drafts, campaign validation, reminders, and any customer-facing message.
+Use this skill for marketing campaigns, customer reactivation, win-back messages, promotions, inbox replies, WhatsApp, SMS, email, broadcasts, campaign drafts, campaign validation, reminders, and any customer-facing message.
 
 ## Operating Rules
 
@@ -24,4 +24,3 @@ Use this skill for inbox replies, WhatsApp, SMS, email, broadcasts, campaign dra
 5. Do not claim delivery until FavCRM reports completion.
 
 Read `references/comms-safety.md` for approval payload patterns.
-

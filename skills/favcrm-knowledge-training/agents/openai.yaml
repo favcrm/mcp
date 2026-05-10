@@ -1,0 +1,4 @@
+display_name: Knowledge Training
+short_description: Train and maintain the FavCRM AI knowledge base from URLs or text.
+default_prompt: Add this policy to the FavCRM AI agent knowledge base.
+

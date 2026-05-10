@@ -1,0 +1,4 @@
+display_name: Business Reporting
+short_description: Build FavCRM KPI snapshots, weekly reports, risk reviews, and dashboards.
+default_prompt: Give me a 7-day FavCRM business snapshot.
+

@@ -1,0 +1,4 @@
+display_name: Sales Ops
+short_description: Manage FavCRM deals, tasks, owners, follow-ups, and workspace switching.
+default_prompt: Show my open deals and next tasks in FavCRM.
+
