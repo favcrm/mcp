@@ -1,0 +1,55 @@
+name: Feature request
+description: Request a new example, client guide, agent skill, tool, scope, or annotation.
+title: "[feature] "
+labels: ["enhancement", "needs triage"]
+body:
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues first.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - New client setup guide
+        - Example config or script
+        - Agent skill
+        - MCP tool or scope
+        - Tool annotation or schema
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: blocked
+    attributes:
+      label: What use case is blocked?
+      placeholder: I want my agent to...
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: What would unblock it?
+      description: Name the new tool, scope, guide, example, or skill you think is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Existing tools or docs that come close
+      description: Include tool names, links, or catalog searches if relevant.
+  - type: input
+    id: client
+    attributes:
+      label: Client
+      placeholder: Cursor, Claude, ChatGPT, Windsurf, Continue, Zed, etc.
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+

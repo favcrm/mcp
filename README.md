@@ -220,6 +220,8 @@ Full table: [favcrm.io/pricing](https://favcrm.io/pricing).
 - Bugs in tool behaviour or MCP transport: [open an issue](../../issues/new/choose) here.
 - Examples for a new client (Cline, Replit Agent, Roo, etc.): PRs welcome under [`examples/`](./examples).
 - Agent workflow skills: PRs welcome under [`skills/`](./skills).
+- Contribution guidelines: [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+- Security reports: please follow [`SECURITY.md`](./SECURITY.md); do not open public vulnerability issues.
 - Server bugs / new tool requests / commercial questions: [dev@favcrm.io](mailto:dev@favcrm.io).
 
 ---

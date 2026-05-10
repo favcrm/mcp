@@ -1,0 +1,85 @@
+name: Bug report
+description: Report a broken setup guide, example, skill, or MCP behavior.
+title: "[bug] "
+labels: ["bug", "needs triage"]
+body:
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues first.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - MCP transport or tool call
+        - Client setup guide
+        - Example config or script
+        - Agent skill
+        - README or docs
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: ran
+    attributes:
+      label: What you ran
+      description: Paste the prompt, command, curl request, or config snippet that triggered the problem. Redact tokens.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Include the response, error, or observed behavior.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Client and version
+      placeholder: Cursor, Claude Desktop, ChatGPT, curl, Smithery, etc.
+    validations:
+      required: true
+  - type: dropdown
+    id: token_kind
+    attributes:
+      label: Token kind
+      options:
+        - fav_mcp_*
+        - fav_v0_*
+        - OAuth bearer
+        - No auth / discovery endpoint
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: timestamp
+    attributes:
+      label: Approximate timestamp
+      description: Use UTC if possible so maintainers can find logs.
+      placeholder: "2026-05-10 14:32 UTC"
+  - type: input
+    id: request_id
+    attributes:
+      label: Request ID
+      description: Header `X-Request-Id`, if present.
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Screenshots, links, or notes that may help.
+

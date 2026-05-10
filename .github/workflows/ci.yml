@@ -1,0 +1,31 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: docs and examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check issue forms
+        run: |
+          test -f .github/ISSUE_TEMPLATE/bug.yml
+          test -f .github/ISSUE_TEMPLATE/feature.yml
+          grep -R "validations:" .github/ISSUE_TEMPLATE
+
+      - name: Check examples are token-safe
+        run: |
+          if grep -R --line-number -E 'fav_(mcp|v0)_[A-Za-z0-9_-]{12,}' README.md examples skills; then
+            echo "Found what looks like a real FavCRM token. Use placeholders such as fav_mcp_..."
+            exit 1
+          fi
+
