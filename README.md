@@ -6,6 +6,17 @@
 
 156 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
+## 🤖 AI Agent Skills
+
+Building against the FavCRM headless backend with an AI Agent? Teach your AI our best practices, standard operating procedures, and MCP tool shapes by installing our official skills:
+
+```bash
+# Example: Install the Booking Operator skill
+npx skills add favcrm/mcp/skills/favcrm-booking-operator
+```
+
+See the [`skills/`](./skills) directory for the full list of available agent skills.
+
 Public agent skills live in [`skills/`](./skills): portable workflow packages for agentic registration, booking operations, customer lifecycle, comms approval, billing/commerce, content, sales ops, knowledge training, and reporting. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
 
 | Client | Status | Setup |
