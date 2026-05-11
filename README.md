@@ -4,7 +4,7 @@
 
 > Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
 
-156 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
+165 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
 ## 🤖 AI Agent Skills
 
@@ -20,7 +20,7 @@ npx skills add favcrm/mcp
 
 See the [`skills/`](./skills) directory for the full list of available agent skills.
 
-Public agent skills live in [`skills/`](./skills): portable workflow packages for agentic registration, booking operations, customer lifecycle, comms approval, billing/commerce, content, sales ops, knowledge training, and reporting. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
+Public agent skills live in [`skills/`](./skills): portable workflow packages for agentic registration, team onboarding, channel setup, booking operations, customer lifecycle, comms approval, billing/commerce, content, sales ops, knowledge training, and reporting. They are source-readable for agents and marketing, while FavCRM runtimes install vetted versions through the platform skill registry.
 
 | Client | Status | Setup |
 |---|---|---|
@@ -62,6 +62,26 @@ Existing FavCRM merchants: same place, no plan upgrade needed for MCP access.
 
 **Free tier (both options):** 100 customers, 200 bookings/month, 1k MCP calls/month, 30-day trial of higher limits.
 
+### Bootstrap from the CLI
+
+The `favcrm` CLI can also run the zero-state flow:
+
+```bash
+favcrm signup request --email owner@example.com --organisation-name "Ada Studio"
+favcrm signup verify --request-id <request-id> --code <code>
+favcrm doctor
+favcrm team invite create --email teammate@example.com --role staff
+favcrm whatsapp status
+favcrm whatsapp connect --mode cloud-api
+```
+
+Team invitees can accept without an existing API key:
+
+```bash
+favcrm team invite accept-request --token <invite-token>
+favcrm team invite accept-verify --token <invite-token> --code <code>
+```
+
 ---
 
 ## Cursor
@@ -93,7 +113,7 @@ echo 'export FAVCRM_API_KEY=fav_mcp_...' >> ~/.zshrc
 echo 'export FAVCRM_API_KEY=fav_mcp_...' >> .envrc
 ```
 
-Restart Cursor → `Settings → MCP → favcrm` connects → 156 tools land in chat.
+Restart Cursor → `Settings → MCP → favcrm` connects → 165 tools land in chat.
 
 > Why `${env:VAR}` instead of inline? Cursor interpolates env vars at request time so the key never lands in your repo or shared config.
 
@@ -142,7 +162,7 @@ Once your config is live, ChatGPT/Cursor/Claude will list tools automatically. T
 ```bash
 # Discovery (no auth needed — public-scan endpoint)
 curl https://api.favcrm.io/.well-known/mcp/server-card.json | jq '.tools | length'
-# → 156
+# → 165
 
 # Auth + initialize
 curl -s https://api.favcrm.io/mcp \
@@ -169,7 +189,7 @@ See [`examples/`](./examples) for more.
 
 ## Tool surface
 
-156 tools across 22 scopes. Every tool ships with annotations:
+165 tools across 24 scopes. Every tool ships with annotations:
 
 - `title` — human-readable label
 - `readOnlyHint` — `true` for `list_*` / `get_*` / `search_*` / etc.

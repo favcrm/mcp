@@ -9,8 +9,8 @@ Use this skill when a new user wants to sign up for FavCRM without leaving an MC
 
 ## Operating Rules
 
-- Use MCP tools, not the `favcrm` CLI. No API key exists before registration completes.
-- Primary path is `register_organisation_request` followed by `register_organisation_verify`.
+- Primary MCP path is `register_organisation_request` followed by `register_organisation_verify`.
+- When operating through a shell, the `favcrm` CLI supports the same no-auth flow with `favcrm signup request` and `favcrm signup verify`.
 - Treat `/v6/dev/signup` and `/v6/dev/verify` as REST sandbox fallback/docs only.
 - Never ask the user to paste the API key into a repo, prompt history file, shared config, or source code.
 - If the user already has a FavCRM account, tell them to sign in and create an MCP key from portal settings.
@@ -33,7 +33,6 @@ Use this skill when a new user wants to sign up for FavCRM without leaving an MC
 3. Tell the user to check the masked email for the 6-digit code.
 4. When the user provides the code, call `register_organisation_verify` with `requestId` and `code`.
 5. Return the `loginUrl`, workspace IDs if useful, and secure key handling guidance.
-6. Tell the user to set the API key as the MCP Bearer token or environment variable for future calls.
+6. Tell the user to set the API key as the MCP Bearer token or environment variable for future calls. If using the CLI, `favcrm signup verify` saves the key by default unless `--no-save` is used.
 
 Read `references/agentic-registration-flow.md` for exact call shapes and failure handling.
-
