@@ -13,6 +13,16 @@
       "description": "Use for service setup, availability, booking lifecycle, cancellations, no-shows, reminders, and daily booking operations in FavCRM."
     },
     {
+      "name": "favcrm-team-onboarding",
+      "path": "skills/favcrm-team-onboarding",
+      "description": "Use when inviting teammates, accepting team invite tokens, verifying invite OTPs, and issuing invited-user MCP API keys."
+    },
+    {
+      "name": "favcrm-channel-setup",
+      "path": "skills/favcrm-channel-setup",
+      "description": "Use when checking or connecting communication channels, especially WhatsApp Business Embedded Signup."
+    },
+    {
       "name": "favcrm-customer-lifecycle",
       "path": "skills/favcrm-customer-lifecycle",
       "description": "Use for customer search, member profiles, tags, tiers, loyalty, segments, onboarding, retention, and customer 360 summaries in FavCRM."
