@@ -199,6 +199,8 @@ See [`examples/`](./examples) for more.
 
 Clients can use these to gate destructive calls or estimate cost. The full catalog at `https://api.favcrm.io/.well-known/mcp/server-card.json` is the source of truth — listings here are summaries only.
 
+Agents should use `query_favcrm_platform` before guessing tool names or argument shapes. For merchant-specific facts, policies, pricing notes, FAQs, or brand guidance, use `query_company_knowledge`; it returns snippets with source document IDs rather than full documents.
+
 | Scope | Sample tools | Read-only | Write |
 |---|---|---|---|
 | `contacts` | `search_members`, `get_member_profile`, `create_account`, `attach_tags` | 5 | 6 |
