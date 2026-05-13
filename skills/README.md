@@ -35,7 +35,8 @@ Public source lives here. FavCRM merchant runtimes do not pull arbitrary GitHub 
 
 All skills use the same safety baseline:
 
-- For merchant runtime skills, discover before acting with `favcrm tool list` and `favcrm tool describe <name>`.
+- For merchant runtime skills, discover before acting with `favcrm tool query_favcrm_platform '{"query":"..."}'`, then `favcrm tool describe <name>` for exact arguments.
+- For merchant-specific facts, use `favcrm tool query_company_knowledge '{"query":"..."}'` and cite the returned source document ID.
 - For `favcrm-agentic-registration`, use the no-auth MCP tools directly or the `favcrm signup` CLI commands.
 - For team invite acceptance, use the no-auth `accept_team_invite_request` / `accept_team_invite_verify` pair or `favcrm team invite accept-*`.
 - Do not guess tool names or JSON argument keys.
