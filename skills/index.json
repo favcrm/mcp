@@ -33,6 +33,11 @@
       "description": "Use for FavCRM marketing campaigns, customer reactivation, broadcasts, WhatsApp, SMS, email, inbox replies, and approval-gated customer communications."
     },
     {
+      "name": "favcrm-survey-operator",
+      "path": "skills/favcrm-survey-operator",
+      "description": "Use for FavCRM survey creation, publishing, public or token links, invitations, response review, survey stats, and response-triggered automation."
+    },
+    {
       "name": "favcrm-billing-commerce",
       "path": "skills/favcrm-billing-commerce",
       "description": "Use for invoices, payments, products, orders, promotions, subscriptions, overdue follow-up, and commerce operations in FavCRM."
