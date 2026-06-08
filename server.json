@@ -1,0 +1,27 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.favcrm/favcrm",
+  "title": "FavCRM",
+  "description": "Agentic CRM for service businesses — bookings, customers, WhatsApp, loyalty, invoicing.",
+  "version": "1.0.0",
+  "websiteUrl": "https://favcrm.io",
+  "repository": {
+    "url": "https://github.com/favcrm/mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.favcrm.io/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. A FavCRM MCP key as a Bearer token, or connect via OAuth (the server exposes /.well-known/oauth-authorization-server for automatic auth).",
+          "placeholder": "Bearer fav_mcp_...",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

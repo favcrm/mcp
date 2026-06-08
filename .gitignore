@@ -3,3 +3,7 @@ node_modules/
 .env
 .env.local
 *.log
+
+# MCP registry publishing key (ed25519) — NEVER commit. Keep it safe to re-publish version bumps.
+*.pem
+key.pem
