@@ -4,7 +4,9 @@
 
 > Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
 
-194 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
+229 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
+
+For large-agent runtimes, the same endpoint supports a compact discovery/router profile: add `?profile=compact` or `X-FavCRM-MCP-Profile: compact` to expose a small `search_tools` + `execute_tool` surface instead of the full catalog. The default profile remains full for clients and scanners.
 
 ## 🤖 AI Agent Skills
 
@@ -113,7 +115,7 @@ echo 'export FAVCRM_API_KEY=fav_mcp_...' >> ~/.zshrc
 echo 'export FAVCRM_API_KEY=fav_mcp_...' >> .envrc
 ```
 
-Restart Cursor → `Settings → MCP → favcrm` connects → 194 tools land in chat.
+Restart Cursor → `Settings → MCP → favcrm` connects → 229 tools land in chat.
 
 > Why `${env:VAR}` instead of inline? Cursor interpolates env vars at request time so the key never lands in your repo or shared config.
 
@@ -162,7 +164,7 @@ Once your config is live, ChatGPT/Cursor/Claude will list tools automatically. T
 ```bash
 # Discovery (no auth needed — public-scan endpoint)
 curl https://api.favcrm.io/.well-known/mcp/server-card.json | jq '.tools | length'
-# → 194
+# → 229
 
 # Auth + initialize
 curl -s https://api.favcrm.io/mcp \
@@ -189,7 +191,7 @@ See [`examples/`](./examples) for more.
 
 ## Tool surface
 
-194 tools across 24 scopes. Every tool ships with annotations:
+229 tools across 27 scopes. Every tool ships with annotations:
 
 - `title` — human-readable label
 - `readOnlyHint` — `true` for `list_*` / `get_*` / `search_*` / etc.
@@ -199,11 +201,13 @@ See [`examples/`](./examples) for more.
 
 Clients can use these to gate destructive calls or estimate cost. The full catalog at `https://api.favcrm.io/.well-known/mcp/server-card.json` is the source of truth — listings here are summaries only.
 
-Agents should use `query_favcrm_platform` before guessing tool names or argument shapes. For merchant-specific facts, policies, pricing notes, FAQs, or brand guidance, use `query_company_knowledge`; it returns snippets with source document IDs rather than full documents.
+Agents working from a compact or context-sensitive tool set should use `search_tools` to discover operations, then `execute_tool` to run the selected tool. Use `query_favcrm_platform` for platform docs before guessing behavior or argument shapes. For merchant-specific facts, policies, pricing notes, FAQs, or brand guidance, use `query_company_knowledge`; it returns snippets with source document IDs rather than full documents.
 
 | Scope | Sample tools | Read-only | Write |
 |---|---|---|---|
 | `contacts` | `search_members`, `get_member_profile`, `create_account`, `attach_tags` | 5 | 6 |
+| `customer_segments` | `list_segments`, `preview_segment_count`, `set_segment_members` | 4 | 4 |
+| `custom_fields` | `list_custom_fields`, `create_custom_field`, `set_custom_field_values` | 3 | 4 |
 | `bookings` | `list_services`, `get_available_slots`, `create_booking` | 12 | 15 |
 | `membership` | `list_tiers`, `enrol_membership`, `earn_loyalty_points` | 4 | 3 |
 | `shop` | `list_products`, `get_order`, `create_order` | 8 | 6 |
