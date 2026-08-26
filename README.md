@@ -6,7 +6,13 @@
 
 229 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
-For large-agent runtimes, the same endpoint supports a compact discovery/router profile: add `?profile=compact` or `X-FavCRM-MCP-Profile: compact` to expose a small `search_tools` + `execute_tool` surface instead of the full catalog. The default profile remains full for clients and scanners.
+The endpoint supports purpose-built tool profiles selected with `?profile=<name>` or `X-FavCRM-MCP-Profile`:
+
+- `compact` exposes a small `search_tools` + `execute_tool` discovery/router surface for large-agent runtimes.
+- `platform` exposes only superadmin customer-workspace and company-setup operations, works without an active merchant company, and never exposes raw SQL.
+- `full` remains the default for clients and scanners.
+
+Platform operators can start from the dedicated [Cursor](./examples/platform-admin.cursor.mcp.json) or [Claude Desktop](./examples/platform-admin.claude-desktop.json) configuration. Ordinary merchant API keys cannot access platform tools.
 
 ## 🤖 AI Agent Skills
 
@@ -214,6 +220,18 @@ Agents working from a compact or context-sensitive tool set should use `search_t
 | `invoices` | `list_invoices`, `mark_invoice_paid` | 4 | 4 |
 | `campaigns` | `list_campaigns`, `send_campaign` (gated) | 5 | 3 |
 | `blog` | `list_posts`, `publish_post` | 14 | 13 |
+
+Superadmin platform tools use a separate scope family:
+
+| Scope | Capability |
+|---|---|
+| `platform:customer_setup` | Search/create customer workspaces and configure company setup |
+| `platform:catalog` | Manage global plan, module, and AI-media catalogs in the full profile |
+| `platform:sql_read` | Break-glass `SELECT`/`EXPLAIN` access in the full profile |
+| `platform:sql_write` | Break-glass DML access in the full profile |
+| `platform:*` | All platform capabilities; reserve for controlled internal operators |
+
+SQL scopes must be explicit, and SQL tools remain unavailable in the `platform` profile even with `platform:*`.
 
 ---
 

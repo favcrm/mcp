@@ -1,0 +1,12 @@
+{
+  "//": "Internal superadmin customer setup profile. Use a scoped platform API key.",
+  "mcpServers": {
+    "favcrm-platform": {
+      "url": "https://api.favcrm.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:FAVCRM_PLATFORM_API_KEY}",
+        "X-FavCRM-MCP-Profile": "platform"
+      }
+    }
+  }
+}
