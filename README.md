@@ -4,7 +4,7 @@
 
 > Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
 
-229 typed tools — customers, bookings, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
+231 typed tools — customers, bookings, events, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
 
 The endpoint supports purpose-built tool profiles selected with `?profile=<name>` or `X-FavCRM-MCP-Profile`:
 
@@ -121,7 +121,7 @@ echo 'export FAVCRM_API_KEY=fav_mcp_...' >> ~/.zshrc
 echo 'export FAVCRM_API_KEY=fav_mcp_...' >> .envrc
 ```
 
-Restart Cursor → `Settings → MCP → favcrm` connects → 229 tools land in chat.
+Restart Cursor → `Settings → MCP → favcrm` connects → 231 tools land in chat.
 
 > Why `${env:VAR}` instead of inline? Cursor interpolates env vars at request time so the key never lands in your repo or shared config.
 
@@ -170,7 +170,7 @@ Once your config is live, ChatGPT/Cursor/Claude will list tools automatically. T
 ```bash
 # Discovery (no auth needed — public-scan endpoint)
 curl https://api.favcrm.io/.well-known/mcp/server-card.json | jq '.tools | length'
-# → 229
+# → 231
 
 # Auth + initialize
 curl -s https://api.favcrm.io/mcp \
@@ -197,7 +197,7 @@ See [`examples/`](./examples) for more.
 
 ## Tool surface
 
-229 tools across 27 scopes. Every tool ships with annotations:
+231 tools across 28 scopes. Every tool ships with annotations:
 
 - `title` — human-readable label
 - `readOnlyHint` — `true` for `list_*` / `get_*` / `search_*` / etc.
@@ -215,6 +215,7 @@ Agents working from a compact or context-sensitive tool set should use `search_t
 | `customer_segments` | `list_segments`, `preview_segment_count`, `set_segment_members` | 4 | 4 |
 | `custom_fields` | `list_custom_fields`, `create_custom_field`, `set_custom_field_values` | 3 | 4 |
 | `bookings` | `list_services`, `get_available_slots`, `create_booking` | 12 | 15 |
+| `events` | `list_event_registrations`, `get_event_campaign_exclusions` | 2 | 0 |
 | `membership` | `list_tiers`, `enrol_membership`, `earn_loyalty_points` | 4 | 3 |
 | `shop` | `list_products`, `get_order`, `create_order` | 8 | 6 |
 | `invoices` | `list_invoices`, `mark_invoice_paid` | 4 | 4 |
