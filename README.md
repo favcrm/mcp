@@ -35,9 +35,27 @@ Public agent skills live in [`skills/`](./skills): portable workflow packages fo
 | **Vercel v0** | ✅ Live | [Marketplace install](https://vercel.com/integrations/favcrm) — auto-provisions a workspace + injects env vars |
 | **Cursor** | ✅ Live | [`mcp.json` snippet](#cursor) |
 | **Smithery** | ✅ Live | [`smithery mcp add favcrm/favcrm`](#smithery) |
-| **Claude Desktop / Connector** | 🚧 Pending | OAuth provider (Phase 3, ~3 weeks) |
+| **Claude Desktop / Connector** | 🚧 Directory listing pending | OAuth provider is live for Booking Lite; custom connector setup in the [guide](https://favcrm.io/docs/simply-booking-mcp.md) |
 | **ChatGPT Apps Directory** | 🚧 Pending | Listing under review |
 | **Windsurf / Continue.dev / Zed** | ✅ Works | Same `mcp.json` shape as Cursor |
+
+---
+
+## Booking Lite (Simply Booking) assistant
+
+Booking Lite offers workspace-bound OAuth resources for
+[view-only](https://api.favcrm.io/mcp/oauth/view) or
+[manage](https://api.favcrm.io/mcp/oauth/manage) access. An active workspace
+owner or administrator must authorize the connection; actual access may be
+narrower than the resource's scope ceiling. Manage access can change bookings
+and initiate refunds.
+
+Workspace-bound connection keys use the general `/mcp` transport with the
+scope selected at creation. Keys and OAuth grants share the workspace connection
+quota, which can vary by plan or override.
+
+See the [agent-operated setup guide](https://favcrm.io/docs/simply-booking-mcp.md)
+for host-specific guidance, sign-in, verification and revocation.
 
 ---
 
@@ -143,13 +161,16 @@ For a project-scoped install, `smithery mcp add favcrm/favcrm --client cursor` w
 
 ## Claude Desktop
 
-🚧 OAuth-based connector pending Phase 3. Once live:
+🚧 The general 231-tool server is not in Anthropic's connector directory yet. For a
+Booking Lite workspace, the OAuth resources are live now: add a custom connector in
+Claude with the view or manage URL, then sign in and choose the workspace. Follow the
+canonical guide — [`favcrm.io/docs/simply-booking-mcp.md`](https://favcrm.io/docs/simply-booking-mcp.md).
+That guide is provider-documented setup for Claude, but the FavCRM connection itself
+has not been verified end to end by us.
 
-1. `claude.com → Connectors → Add custom connector`
-2. URL: `https://api.favcrm.io/mcp`
-3. Authorize via OAuth → workspace selector → tool list
-
-Until then, advanced users can wire FavCRM into Claude Desktop's `claude_desktop_config.json` via the same Bearer-header pattern as Cursor (community-only path; not currently in Anthropic's connector directory).
+For the general server, advanced users can wire FavCRM into Claude Desktop's
+`claude_desktop_config.json` via the same Bearer-header pattern as Cursor
+(community-only path; not currently in Anthropic's connector directory).
 
 ---
 
@@ -267,7 +288,7 @@ Use `check_plan_operation` before writes that may hit module, scope, subscriptio
 |---|---|---|
 | **`fav_mcp_*` API key** | Long-lived, revocable | Cursor, Windsurf, Zed, Continue.dev, scripts |
 | **`fav_v0_*` partner token** | Per-Vercel-project, scoped | v0 / Vercel install only |
-| **OAuth bearer (15-min JWT + 30-day refresh)** | Short-lived | Claude Connectors (Phase 3), ChatGPT Apps |
+| **OAuth bearer (15-min JWT + 30-day refresh)** | Short-lived | Booking Lite assistant (view/manage resources), custom connectors, ChatGPT Apps |
 | **OTP-issued JWT (60 min)** | Short-lived | Interactive humans (merchant portal exchange) |
 
 Marketplace tokens (`fav_v0_*`, OAuth-issued) are hard-blocked from superadmin tools (raw SQL, plan management) regardless of underlying scopes — defence in depth at the request layer, not just per-token RBAC.
