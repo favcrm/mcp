@@ -82,11 +82,11 @@ Behind the scenes: 10-min OTP, real email-ownership check, per-IP rate limit (3/
 
 **Option B — sign up the traditional way**
 
-[favcrm.io/signup](https://favcrm.io/signup) → portal → `Settings → MCP Keys` → copy the `fav_mcp_*` value.
+[app.favcrm.io/register](https://app.favcrm.io/register) → workspace → `Settings → MCP Keys` → copy the `fav_mcp_*` value.
 
-Existing FavCRM merchants: same place, no plan upgrade needed for MCP access.
+Existing FavCRM merchants: same place, no plan upgrade needed for Read-Only MCP access.
 
-**Free tier (both options):** 100 customers, 200 bookings/month, 1k MCP calls/month, 30-day trial of higher limits.
+**Free Starter tier (both options):** US$0 / month forever (up to 250 client records, no credit card required) with Read-Only OAuth 2.1 MCP (`/mcp/oauth/view`) included.
 
 ### Bootstrap from the CLI
 
@@ -297,14 +297,14 @@ Marketplace tokens (`fav_v0_*`, OAuth-issued) are hard-blocked from superadmin t
 
 ## Pricing
 
-| Tier | Price | Limits |
-|---|---|---|
-| **Free** | $0 | 100 customers · 200 bookings/mo · 1k MCP calls/mo |
-| **Lite** | $19 / mo | 1 seat · email comms · BYO-AI via your agent |
-| **Starter** | $49 / mo | 3 seats · 1M AI credits · WhatsApp + SMS · meeting notes |
-| **Enterprise** | Custom | Unlimited seats · multi-location · custom routing |
+| Plan | USD (`/en/pricing/`) | HKD (`/zh-hk/pricing/`) | Included Limits & MCP Access |
+|---|---|---|---|
+| **Starter** | **US$0 / mo** forever | — | Up to 250 client records · contacts, deals, tasks, CSV/Calendly import · Read-Only OAuth 2.1 MCP (`/mcp/oauth/view`) |
+| **Simply Booking** | **US$20 / mo** (`US$200/yr`) | **HK$180 / mo** (`HK$1,800/yr`) | 1-month free trial (no card at signup) · up to 3 staff & 10 services · Branded Client Portal & deposit tracking · Booking OAuth 2.1 MCP (`/mcp/oauth/view` + `/mcp/oauth/manage`) · 0% FavCRM booking commission |
+| **FavCRM Pro** | **US$29 / mo** (`US$290/yr`) | **HK$580 / mo** (`HK$5,800/yr`) | Up to 5 team members · Memberships, Prepaid Session Packs & Loyalty · Official WhatsApp Business API inbox ($0 markup on Meta template rates) · Full OAuth 2.1 MCP (`/mcp/oauth/crm`) + Approval Guard |
+| **Venue Pro / Multi-Outlet POS** | Custom quote | Custom quote | 24/7 QR venue hardware access or multi-branch digital Wallet & Eats365 POS loyalty |
 
-Full table: [favcrm.io/pricing](https://favcrm.io/pricing).
+Full breakdown: [favcrm.io/en/pricing/](https://favcrm.io/en/pricing/) · [favcrm.io/zh-hk/pricing/](https://favcrm.io/zh-hk/pricing/) · machine-readable spec at [favcrm.io/pricing.md](https://favcrm.io/pricing.md).
 
 ---
 
@@ -321,11 +321,11 @@ Full table: [favcrm.io/pricing](https://favcrm.io/pricing).
 
 ## Links
 
-- [favcrm.io](https://favcrm.io) — landing page
-- [favcrm.io/integrations/vercel](https://favcrm.io/integrations/vercel) · [/cursor](https://favcrm.io/integrations/cursor) · [/chatgpt](https://favcrm.io/integrations/chatgpt) — per-platform install guides
-- [favcrm.io/developers](https://favcrm.io/developers) — full developer docs
-- [favcrm.io/pricing](https://favcrm.io/pricing) — pricing matrix
-- [favcrm.io/privacy-policy](https://favcrm.io/privacy-policy) · [/terms-of-use](https://favcrm.io/terms-of-use)
+- [favcrm.io/en/](https://favcrm.io/en/) · [favcrm.io/zh-hk/](https://favcrm.io/zh-hk/) — English & Hong Kong homepages
+- [favcrm.io/en/guides/connect-your-ai-agent/](https://favcrm.io/en/guides/connect-your-ai-agent/) · [favcrm.io/docs/simply-booking-mcp.md](https://favcrm.io/docs/simply-booking-mcp.md) · [Vercel Marketplace](https://vercel.com/integrations/favcrm) — Claude Desktop, ChatGPT, Cursor & Vercel setup guides
+- [favcrm.io/en/ai-agents/](https://favcrm.io/en/ai-agents/) · [favcrm.io/llms-full.txt](https://favcrm.io/llms-full.txt) — AI & MCP architecture + single-file LLM reference
+- [favcrm.io/en/pricing/](https://favcrm.io/en/pricing/) · [favcrm.io/pricing.md](https://favcrm.io/pricing.md) — pricing matrix & machine-readable spec
+- [favcrm.io/privacy-policy/](https://favcrm.io/privacy-policy/) · [favcrm.io/terms-of-use/](https://favcrm.io/terms-of-use/)
 
 ## Brand assets
 
@@ -333,7 +333,7 @@ Marketplace-ready 1:1 icons with background plate, in [`assets/`](./assets):
 
 | File | Use |
 |---|---|
-| [`assets/icon.png`](./assets/icon.png) | 512×512 PNG — Cursor / Smithery / mcp.so listing |
+| [`assets/icon.png`](./assets/icon.png) | 512×512 PNG — Cursor / Glama / Official MCP Registry listing |
 | [`assets/favcrm-icon-256-dark.svg`](./assets/favcrm-icon-256-dark.svg) | 1:1 SVG, ink plate, light glyph — most marketplaces |
 | [`assets/favcrm-icon-256-light.svg`](./assets/favcrm-icon-256-light.svg) | 1:1 SVG, canvas plate, ink glyph — light-themed UIs |
 | [`assets/favcrm-icon-256-dark.png`](./assets/favcrm-icon-256-dark.png) | 256×256 PNG fallback |
