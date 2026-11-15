@@ -1,6 +1,6 @@
 # FavCRM MCP
 
-[![smithery badge](https://smithery.ai/badge/favcrm/favcrm)](https://smithery.ai/servers/favcrm/favcrm)
+[![FavCRM MCP server](https://glama.ai/mcp/connectors/io.favcrm/favcrm/badges/score.svg)](https://glama.ai/mcp/connectors/io.favcrm/favcrm)
 
 > Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
 
@@ -34,7 +34,7 @@ Public agent skills live in [`skills/`](./skills): portable workflow packages fo
 |---|---|---|
 | **Vercel v0** | ✅ Live | [Marketplace install](https://vercel.com/integrations/favcrm) — auto-provisions a workspace + injects env vars |
 | **Cursor** | ✅ Live | [`mcp.json` snippet](#cursor) |
-| **Smithery** | ✅ Live | [`smithery mcp add favcrm/favcrm`](#smithery) |
+| **Glama** | ✅ Live | [Glama MCP connector (`io.favcrm/favcrm`)](https://glama.ai/mcp/connectors/io.favcrm/favcrm) |
 | **Claude Desktop / Connector** | 🚧 Directory listing pending | OAuth provider is live for Booking Lite; custom connector setup in the [guide](https://favcrm.io/docs/simply-booking-mcp.md) |
 | **ChatGPT Apps Directory** | 🚧 Pending | Listing under review |
 | **Windsurf / Continue.dev / Zed** | ✅ Works | Same `mcp.json` shape as Cursor |
@@ -145,17 +145,17 @@ Restart Cursor → `Settings → MCP → favcrm` connects → 231 tools land in 
 
 ---
 
-## Smithery
+## Glama & Official MCP Registry
 
-[`favcrm.io`](https://smithery.ai/servers/favcrm/favcrm) on Smithery — install via CLI:
+[`io.favcrm/favcrm`](https://glama.ai/mcp/connectors/io.favcrm/favcrm) is listed as an active Streamable HTTP connector on Glama and in the [Official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=favcrm). Use the discovery manifest at [`https://favcrm.io/.well-known/mcp.json`](https://favcrm.io/.well-known/mcp.json) or connect `https://api.favcrm.io/mcp` directly in your MCP client.
 
-```bash
-npm i -g @smithery/cli
-smithery login
-smithery mcp add favcrm/favcrm
-```
+## Specs & Discovery
 
-For a project-scoped install, `smithery mcp add favcrm/favcrm --client cursor` writes the right `mcp.json` block.
+- [`https://favcrm.io/en/ai-agents/`](https://favcrm.io/en/ai-agents/) — OAuth 2.1 MCP overview, resource scopes, and Approval Guard
+- [`https://favcrm.io/en/guides/connect-your-ai-agent/`](https://favcrm.io/en/guides/connect-your-ai-agent/) — Setup guide for Claude Desktop, ChatGPT, and Cursor
+- [`https://favcrm.io/llms.txt`](https://favcrm.io/llms.txt) — Concise AI & LLM documentation index
+- [`https://favcrm.io/.well-known/mcp.json`](https://favcrm.io/.well-known/mcp.json) — Machine-readable MCP server discovery manifest
+- [`https://favcrm.io/.well-known/agent-skills/index.json`](https://favcrm.io/.well-known/agent-skills/index.json) — Verified Agent Skills discovery index (v0.2.0)
 
 ---
 
