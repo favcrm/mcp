@@ -293,7 +293,7 @@ Use `check_plan_operation` before writes that may hit module, scope, subscriptio
 |---|---|---|
 | **`fav_mcp_*` API key** | Long-lived, revocable | Cursor, Windsurf, Zed, Continue.dev, scripts |
 | **`fav_v0_*` partner token** | Per-Vercel-project, scoped | v0 / Vercel install only |
-| **OAuth bearer (15-min JWT + 30-day refresh)** | Short-lived | Booking Lite assistant (view/manage resources), custom connectors, ChatGPT Apps |
+| **Workspace OAuth bearer (15-min JWT + 30-day refresh)** | Short-lived | Remote assistants and custom clients using `https://api.favcrm.io/mcp/oauth` |
 | **OTP-issued JWT (60 min)** | Short-lived | Interactive humans (merchant portal exchange) |
 
 Marketplace tokens (`fav_v0_*`, OAuth-issued) are hard-blocked from superadmin tools (raw SQL, plan management) regardless of underlying scopes — defence in depth at the request layer, not just per-token RBAC.
