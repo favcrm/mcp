@@ -2,11 +2,11 @@
 
 [![FavCRM MCP server](https://glama.ai/mcp/connectors/io.favcrm/favcrm/badges/score.svg)](https://glama.ai/mcp/connectors/io.favcrm/favcrm)
 
-> Install snippets, examples, and docs for the [FavCRM](https://favcrm.io) Model Context Protocol server. The server itself is hosted at `https://api.favcrm.io/mcp` — this repo is for client setup and community examples.
+> Client setup and examples for the [FavCRM](https://favcrm.io) Model Context Protocol server. Use `https://api.favcrm.io/mcp/oauth` for workspace OAuth or `https://api.favcrm.io/mcp` for API keys.
 
-231 typed tools — customers, bookings, events, loyalty, invoices, payments, WhatsApp / SMS / email — exposed via MCP. Works with any agentic client that speaks Streamable HTTP transport.
+Connect eligible booking and CRM operations through remote Streamable HTTP. The available tools depend on the grant and workspace.
 
-The endpoint supports purpose-built tool profiles selected with `?profile=<name>` or `X-FavCRM-MCP-Profile`:
+The API-key endpoint (`/mcp`) supports tool profiles selected with `?profile=<name>` or `X-FavCRM-MCP-Profile`:
 
 - `compact` exposes a small `search_tools` + `execute_tool` discovery/router surface for large-agent runtimes.
 - `platform` exposes only superadmin customer-workspace and company-setup operations, works without an active merchant company, and never exposes raw SQL.
@@ -35,8 +35,8 @@ Public agent skills live in [`skills/`](./skills): portable workflow packages fo
 | **Vercel v0** | ✅ Live | [Marketplace install](https://vercel.com/integrations/favcrm) — auto-provisions a workspace + injects env vars |
 | **Cursor** | ✅ Live | [`mcp.json` snippet](#cursor) |
 | **Glama** | ✅ Live | [Glama MCP connector (`io.favcrm/favcrm`)](https://glama.ai/mcp/connectors/io.favcrm/favcrm) |
-| **Claude Desktop / Connector** | 🚧 Directory listing pending | OAuth provider is live for Booking Lite; custom connector setup in the [guide](https://favcrm.io/docs/simply-booking-mcp.md) |
-| **ChatGPT Apps Directory** | 🚧 Pending | Listing under review |
+| **Claude Desktop / Web** | Hosted connection unverified | [Vendor setup notes](https://favcrm.io/docs/simply-booking-mcp.md#claude) |
+| **ChatGPT Web** | Hosted connection unverified | [Vendor setup notes](https://favcrm.io/docs/simply-booking-mcp.md#chatgpt-and-other-hosts) |
 | **Windsurf / Continue.dev / Zed** | ✅ Works | Same `mcp.json` shape as Cursor |
 
 ---
@@ -48,6 +48,8 @@ An active owner or administrator selects the workspace and individual permission
 in the browser. Nothing is selected for a new connection. Tools are limited by
 the grant and existing workspace and actor policies; Booking Lite does not
 expose general CRM operations. Use [the workspace OAuth guide](https://favcrm.io/docs/merchant-mcp.md).
+The read-only OAuth flow was tested in production with omp. A successful tool
+call from omp does not verify a hosted connector.
 
 Existing `/mcp/oauth/view`, `/mcp/oauth/manage`, `/mcp/oauth/merchant` and
 `/mcp/oauth/crm` connections retain their audiences during migration.
@@ -89,7 +91,7 @@ Behind the scenes: 10-min OTP, real email-ownership check, per-IP rate limit (3/
 
 Existing FavCRM merchants: same place, no plan upgrade needed for Read-Only MCP access.
 
-**Free Starter tier (both options):** US$0 / month forever (up to 250 client records, no credit card required) with Read-Only OAuth 2.1 MCP (`/mcp/oauth/view`) included.
+**Free Starter tier (both options):** US$0 / month forever (up to 250 client records, no credit card required) with eligible read permissions on the unified OAuth endpoint.
 
 ### Bootstrap from the CLI
 
@@ -302,9 +304,9 @@ Marketplace tokens (`fav_v0_*`, OAuth-issued) are hard-blocked from superadmin t
 
 | Plan | USD (`/en/pricing/`) | HKD (`/zh-hk/pricing/`) | Included Limits & MCP Access |
 |---|---|---|---|
-| **Starter** | **US$0 / mo** forever | — | Up to 250 client records · contacts, deals, tasks, CSV/Calendly import · Read-Only OAuth 2.1 MCP (`/mcp/oauth/view`) |
-| **Simply Booking** | **US$20 / mo** (`US$200/yr`) | **HK$180 / mo** (`HK$1,800/yr`) | 1-month free trial (no card at signup) · up to 3 staff & 10 services · Branded Client Portal & deposit tracking · Booking OAuth 2.1 MCP (`/mcp/oauth/view` + `/mcp/oauth/manage`) · 0% FavCRM booking commission |
-| **FavCRM Pro** | **US$29 / mo** (`US$290/yr`) | **HK$580 / mo** (`HK$5,800/yr`) | Up to 5 team members · Memberships, Prepaid Session Packs & Loyalty · Official WhatsApp Business API inbox ($0 markup on Meta template rates) · Full OAuth 2.1 MCP (`/mcp/oauth/crm`) + Approval Guard |
+| **Starter** | **US$0 / mo** forever | — | Up to 250 client records · contacts, deals, tasks, CSV/Calendly import · eligible read permissions on workspace MCP |
+| **Simply Booking** | **US$20 / mo** (`US$200/yr`) | **HK$180 / mo** (`HK$1,800/yr`) | 1-month free trial (no card at signup) · up to 3 staff & 10 services · Branded Client Portal & deposit tracking · selectable booking permissions on workspace MCP · 0% FavCRM booking commission |
+| **FavCRM Pro** | **US$29 / mo** (`US$290/yr`) | **HK$580 / mo** (`HK$5,800/yr`) | Up to 5 team members · Memberships, Prepaid Session Packs & Loyalty · Official WhatsApp Business API inbox ($0 markup on Meta template rates) · eligible CRM and booking permissions on workspace MCP + Approval Guard |
 | **Venue Pro / Multi-Outlet POS** | Custom quote | Custom quote | 24/7 QR venue hardware access or multi-branch digital Wallet & Eats365 POS loyalty |
 
 Full breakdown: [favcrm.io/en/pricing/](https://favcrm.io/en/pricing/) · [favcrm.io/zh-hk/pricing/](https://favcrm.io/zh-hk/pricing/) · machine-readable spec at [favcrm.io/pricing.md](https://favcrm.io/pricing.md).
