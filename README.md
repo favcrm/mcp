@@ -41,18 +41,21 @@ Public agent skills live in [`skills/`](./skills): portable workflow packages fo
 
 ---
 
-## Booking Lite (Simply Booking) assistant
+## Workspace OAuth
 
-Booking Lite offers workspace-bound OAuth resources for
-[view-only](https://api.favcrm.io/mcp/oauth/view) or
-[manage](https://api.favcrm.io/mcp/oauth/manage) access. An active workspace
-owner or administrator must authorize the connection; actual access may be
-narrower than the resource's scope ceiling. Manage access can change bookings
-and initiate refunds.
+Connect a remote Streamable HTTP MCP client to `https://api.favcrm.io/mcp/oauth`.
+An active owner or administrator selects the workspace and individual permissions
+in the browser. Nothing is selected for a new connection. Tools are limited by
+the grant and existing workspace and actor policies; Booking Lite does not
+expose general CRM operations. Use [the workspace OAuth guide](https://favcrm.io/docs/merchant-mcp.md).
+
+Existing `/mcp/oauth/view`, `/mcp/oauth/manage`, `/mcp/oauth/merchant` and
+`/mcp/oauth/crm` connections retain their audiences during migration.
+Reconnect with fresh consent at the new URL; do not copy tokens across endpoints.
 
 Workspace-bound connection keys use the general `/mcp` transport with the
-scope selected at creation. Keys and OAuth grants share the workspace connection
-quota, which can vary by plan or override.
+scope selected at creation. OAuth connections do not consume API-key slots.
+Both are subject to workspace call quotas.
 
 See the [agent-operated setup guide](https://favcrm.io/docs/simply-booking-mcp.md)
 for host-specific guidance, sign-in, verification and revocation.
